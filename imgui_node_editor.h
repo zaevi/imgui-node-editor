@@ -298,8 +298,8 @@ IMGUI_NODE_EDITOR_API const char* GetStyleColorName(StyleColor colorIndex);
 IMGUI_NODE_EDITOR_API void PushStyleColor(StyleColor colorIndex, const ImVec4& color);
 IMGUI_NODE_EDITOR_API void PopStyleColor(int count = 1);
 
-IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, float value);
-IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, const ImVec2& value);
+void PushStyleVar(StyleVar varIndex, float value);
+void PushStyleVar(StyleVar varIndex, const ImVec2& value);
 IMGUI_NODE_EDITOR_API void PushStyleVar(StyleVar varIndex, const ImVec4& value);
 IMGUI_NODE_EDITOR_API void PopStyleVar(int count = 1);
 
@@ -332,13 +332,13 @@ IMGUI_NODE_EDITOR_API bool Link(LinkId id, PinId startPinId, PinId endPinId, con
 IMGUI_NODE_EDITOR_API void Flow(LinkId linkId, FlowDirection direction = FlowDirection::Forward);
 
 IMGUI_NODE_EDITOR_API bool BeginCreate(const ImVec4& color = ImVec4(1, 1, 1, 1), float thickness = 1.0f);
-IMGUI_NODE_EDITOR_API bool QueryNewLink(PinId* startId, PinId* endId);
+bool QueryNewLink(PinId* startId, PinId* endId);
 IMGUI_NODE_EDITOR_API bool QueryNewLink(PinId* startId, PinId* endId, const ImVec4& color, float thickness = 1.0f);
-IMGUI_NODE_EDITOR_API bool QueryNewNode(PinId* pinId);
+bool QueryNewNode(PinId* pinId);
 IMGUI_NODE_EDITOR_API bool QueryNewNode(PinId* pinId, const ImVec4& color, float thickness = 1.0f);
-IMGUI_NODE_EDITOR_API bool AcceptNewItem();
+bool AcceptNewItem();
 IMGUI_NODE_EDITOR_API bool AcceptNewItem(const ImVec4& color, float thickness = 1.0f);
-IMGUI_NODE_EDITOR_API void RejectNewItem();
+void RejectNewItem();
 IMGUI_NODE_EDITOR_API void RejectNewItem(const ImVec4& color, float thickness = 1.0f);
 IMGUI_NODE_EDITOR_API void EndCreate();
 
@@ -380,9 +380,9 @@ IMGUI_NODE_EDITOR_API void DeselectLink(LinkId linkId);
 IMGUI_NODE_EDITOR_API bool DeleteNode(NodeId nodeId);
 IMGUI_NODE_EDITOR_API bool DeleteLink(LinkId linkId);
 
-IMGUI_NODE_EDITOR_API bool HasAnyLinks(NodeId nodeId); // Returns true if node has any link connected
+bool HasAnyLinks(NodeId nodeId); // Returns true if node has any link connected
 IMGUI_NODE_EDITOR_API bool HasAnyLinks(PinId pinId); // Return true if pin has any link connected
-IMGUI_NODE_EDITOR_API int BreakLinks(NodeId nodeId); // Break all links connected to this node
+int BreakLinks(NodeId nodeId); // Break all links connected to this node
 IMGUI_NODE_EDITOR_API int BreakLinks(PinId pinId); // Break all links connected to this pin
 
 IMGUI_NODE_EDITOR_API void NavigateToContent(float duration = -1);
@@ -431,6 +431,7 @@ IMGUI_NODE_EDITOR_API ImVec2 CanvasToScreen(const ImVec2& pos);
 IMGUI_NODE_EDITOR_API int GetNodeCount();                                // Returns number of submitted nodes since Begin() call
 IMGUI_NODE_EDITOR_API int GetOrderedNodeIds(NodeId* nodes, int size);    // Fills an array with node id's in order they're drawn; up to 'size` elements are set. Returns actual size of filled id's.
 
+IMGUI_NODE_EDITOR_API void SetImGuiContext(ImGuiContext* ctx);
 
 
 

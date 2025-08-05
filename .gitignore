@@ -9,3 +9,5 @@ bin
 *.user
 *.ini
 *.json
+.cache
+.xmake
